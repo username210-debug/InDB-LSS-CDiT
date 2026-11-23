@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "RocksDB experiment",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/rdbdemo",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [
+        {
+          "name": "BASIN_DATA_DIR",
+          "value": "${workspaceFolder}/../remixdb/data/basin_data"
+        },
+        {
+          "name": "FLUXNET_DATA_DIR",
+          "value": "${workspaceFolder}/../remixdb/data/fluxnet_data"
+        },
+        {
+          "name": "WINDTUNNEL_DATA_DIR",
+          "value": "${workspaceFolder}/../remixdb/data/windtunnel_data"
+        }
+      ],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "build rdbdemo"
+    }
+  ]
+}

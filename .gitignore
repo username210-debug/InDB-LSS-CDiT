@@ -1,0 +1,39 @@
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Build artifacts
+__pycache__/
+*.py[cod]
+*.o
+*.a
+*.so
+*.out
+*.dll
+*.dylib
+*.exe
+
+# Downloaded third-party datasets
+/remixdb/data/*
+!/remixdb/data/.gitkeep
+
+# RemixDB runtime metadata and logs
+/remixdb/file/**
+!/remixdb/file/.gitkeep
+/remixdb/experiment_log/**
+!/remixdb/experiment_log/.gitkeep
+
+# RemixDB executable
+/remixdb/xdbdemo
+
+# RocksDB runtime metadata, logs, binaries, and local build directory
+/rocksdb/meta_file/**
+!/rocksdb/meta_file/.gitkeep
+/rocksdb/experiment_log/**
+!/rocksdb/experiment_log/.gitkeep
+/rocksdb/build_causal/
+/rocksdb/rdbdemo

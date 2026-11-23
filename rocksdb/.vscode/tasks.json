@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build rdbdemo",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-c",
+        "rm -f rdbdemo && make -f Makefile.causal -j2 rdbdemo"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}

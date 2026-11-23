@@ -1,0 +1,72 @@
+﻿指定试验品集合,查询时间起止范围,参与的原因列,参与的结果列,采样步长,完整子随机过程长度T,推断时的τ,MemTable(MB),是否测试故障数据集,是否打印过程日志,是否使用协方差缓存驱动CDiT
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,1,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,1,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,2,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,2,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,4,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,4,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,16,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,16,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,32,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,32,否,否,是
+
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,100,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,100,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,250,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,250,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,500,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,500,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1500,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1500,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,2000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,2000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,3000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,3000,5,8,否,否,是
+
+mul sin,"=""-∞到+∞""",Lout,ωout,1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""",Lout,ωout,1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""",Lout,"Cout,ωout,Pdw",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""",Lout,"Cout,ωout,Pdw",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lout,Lin","ωout,Cout,Pdw,Pup",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lout,Lin","ωout,Cout,Pdw,Pup",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lout,Lin","ωout,Cout,Pdw,Pup,Pamb,Pint",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lout,Lin","ωout,Cout,Pdw,Pup,Pamb,Pint",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,ωin,Cout,Cin,Pdw,Pup",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,ωin,Cout,Cin,Pdw,Pup",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,Pdw,ωin,Cout,Cin,Pup,Pint,S1",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,Pdw,ωin,Cout,Cin,Pup,Pint,S1",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,Pdw,ωin,Cout,Cin,Pup,Pint,S1,S2,Pamb",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2","ωout,Pdw,ωin,Cout,Cin,Pup,Pint,S1,S2,Pamb",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2,H","ωin,ωout,Pup,Cout,Pdw,Pint,S1,Cin,Pamb,M,S2",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout,A1,A2,H","ωin,ωout,Pup,Cout,Pdw,Pint,S1,Cin,Pamb,M,S2",1,1000,5,8,否,否,是
+
+mul sin,"=""0.00到20000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""0.00到20000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""0.00到40000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""0.00到40000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""0.00到60000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""0.00到60000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""0.00到80000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""0.00到80000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""0.00到100000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""0.00到100000.00""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,3,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,3,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,5,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,7,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,7,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,9,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,9,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,11,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,11,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,13,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,13,8,否,否,是
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,15,8,否,否,否
+mul sin,"=""-∞到+∞""","Lin,Lout","ωout,Pdw,ωin,Cout,Cin,Pup",1,1000,15,8,否,否,是
+

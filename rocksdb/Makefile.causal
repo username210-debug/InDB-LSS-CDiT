@@ -1,0 +1,80 @@
+CC = gcc-11
+CXX = g++-11
+ROCKSDB_MAKE_JOBS ?= 2
+
+BUILD_DIR := build_causal
+TARGET := rdbdemo
+
+CPPFLAGS := -I. -Iinclude
+CXXFLAGS := -std=c++20 -O3 -g -DNDEBUG -pthread -fno-rtti -MMD -MP
+LDLIBS := -pthread -lgflags -lsnappy -lz -lbz2 -llz4 -lzstd -lrt -ldl
+
+OBJS := \
+	$(BUILD_DIR)/rdbdemo.o \
+	$(BUILD_DIR)/basin_experiment.o \
+	$(BUILD_DIR)/fluxnet_experiment.o \
+	$(BUILD_DIR)/windtunnel_experiment.o \
+	$(BUILD_DIR)/outdb_basin_experiment.o \
+	$(BUILD_DIR)/outdb_fluxnet_experiment.o \
+	$(BUILD_DIR)/outdb_windtunnel_experiment.o \
+	$(BUILD_DIR)/causal_meta.o \
+	$(BUILD_DIR)/cdit_module.o
+
+DEPS := $(OBJS:.o=.d)
+
+.PHONY: all rocksdb-lib clean-causal FORCE
+
+all: $(TARGET)
+
+# 每次都会让 RocksDB 自己的 Makefile 检查一次依赖，但它是增量 make：
+# 未修改 RocksDB 源码时不会重新全量编译 librocksdb.a。
+rocksdb-lib:
+	$(MAKE) CC=$(CC) CXX=$(CXX) -j$(ROCKSDB_MAKE_JOBS) static_lib
+
+$(TARGET): rocksdb-lib $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) librocksdb.a $(LDLIBS) -o $@
+
+$(BUILD_DIR):
+	mkdir -p $@
+
+# rdbdemo.c 是各个实验的总入口。
+# 每次点击运行时都强制重新编译这个很小的入口文件，
+# 从而保证在 rdbdemo.c 中切换 experiment 注释后，
+# 新生成的 rdbdemo 一定采用本次最新选择的实验入口。
+# 其他 experiment.cpp 仍按照 Make 的依赖关系进行增量编译。
+$(BUILD_DIR)/rdbdemo.o: rdbdemo.c experiment/basin_experiment.h experiment/fluxnet_experiment.h experiment/windtunnel_experiment.h experiment/outdb_basin_experiment.h experiment/outdb_fluxnet_experiment.h experiment/outdb_windtunnel_experiment.h FORCE | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -x c++ -c $< -o $@
+
+$(BUILD_DIR)/basin_experiment.o: experiment/basin_experiment.cpp experiment/basin_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/fluxnet_experiment.o: experiment/fluxnet_experiment.cpp experiment/fluxnet_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/windtunnel_experiment.o: experiment/windtunnel_experiment.cpp experiment/windtunnel_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/outdb_basin_experiment.o: experiment/outdb_basin_experiment.cpp experiment/outdb_basin_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/outdb_fluxnet_experiment.o: experiment/outdb_fluxnet_experiment.cpp experiment/outdb_fluxnet_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/outdb_windtunnel_experiment.o: experiment/outdb_windtunnel_experiment.cpp experiment/outdb_windtunnel_experiment.h causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/causal_meta.o: causal_meta.cpp causal_meta.h cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+$(BUILD_DIR)/cdit_module.o: cdit_module.cpp cdit_module.h | $(BUILD_DIR)
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+
+# FORCE 是一个永远被认为需要执行的伪目标。
+# 把它作为 rdbdemo.o 的依赖，可以保证 rdbdemo.c 每次都重新编译，
+# 但不会影响其他 .o 文件的增量编译。
+FORCE:
+
+clean-causal:
+	rm -rf $(BUILD_DIR) $(TARGET)
+
+-include $(DEPS)
