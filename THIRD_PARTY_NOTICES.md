@@ -8,7 +8,7 @@
 本项目包含两套上游数据库工程，两者独立构建，分别遵循各自的上游许可证。
 
 - **RemixDB**（`remixdb/`）：保留上游项目的 `LICENSE` 文件。使用及分发时应遵守该源码目录中的许可证条款。
-- **RocksDB 11.8.1**（`rocksdb/`）：保留上游的 `LICENSE`、`COPYING` 以及第三方依赖许可证文件。使用及分发时应遵守 RocksDB 适用的许可证及其所包含第三方依赖的许可证。
+- **RocksDB 11.8.1**（`rocksdb/`）：保留上游的 `COPYING`（GPLv2）、`LICENSE.Apache`（Apache 2.0）、`LICENSE.leveldb`（LevelDB BSD 许可证）以及随附的第三方依赖许可证文件。RocksDB 采用 GPLv2 和 Apache 2.0 双许可证机制，使用及分发时应遵守所适用的许可证条款，以及其依赖项各自适用的许可证条款。
 - 本项目新增或修改的源代码文件，应按照相应上游许可证的适用要求进行使用和分发。本声明不替代、不合并，也不改变各上游项目原有的许可证。
 
 ## 2. 第三方数据集声明
@@ -176,7 +176,7 @@ This document describes the third-party software and datasets used in this proje
 This repository contains two upstream database projects. They are independently buildable and retain their separate upstream licenses.
 
 - **RemixDB** (`remixdb/`): the upstream `LICENSE` file is retained. Use and redistribution must comply with the license terms in that source tree.
-- **RocksDB 11.8.1** (`rocksdb/`): the upstream `LICENSE`, `COPYING`, and third-party dependency license files are retained. Use and redistribution must comply with the applicable RocksDB license and the licenses of its bundled dependencies.
+- **RocksDB 11.8.1** (`rocksdb/`): the upstream `COPYING` (GPLv2), `LICENSE.Apache` (Apache 2.0), `LICENSE.leveldb` (LevelDB BSD license), and bundled third-party license files are retained. RocksDB uses a dual-licensing model under GPLv2 and Apache 2.0. Please follow the applicable license terms for RocksDB and its dependencies.
 - Project-added and project-modified source files must be used and redistributed consistently with the applicable upstream license obligations. This notice does not replace, combine, or modify the original licenses of the upstream projects.
 
 ## 2. Third-Party Dataset Notices
