@@ -16,11 +16,21 @@ This repository contains two independently buildable database projects: RemixDB 
 - **原始数据集：** [FLUXNET2015](https://fluxnet.org/data/fluxnet2015-dataset/)。
 - **数据政策：** [FLUXNET2015 Data Policy](https://fluxnet.org/data/data-policy/)；[2020 年数据政策变更记录](https://fluxnet.org/change-log/)。
 - **许可证：** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)，适用于本项目使用的 Tier One 站点数据。
-- **下载：** [GitHub Releases]。
+- **下载入口：** [GitHub Releases]。
 
 SPACETIME 案例数据包列出的 95 个 FLUXNET 站点中，`ZA-Kru` 属于 FLUXNET2015 Tier Two。该站点已从本项目公开数据中排除；其余 94 个站点属于 CC BY 4.0（Tier One）范围。FLUXNET 官方列出的六个 Tier Two 站点为 `RU-Sam`、`RU-SkP`、`RU-Tks`、`RU-Vrk`、`SE-St1` 和 `ZA-Kru`；在上述 95 个案例站点中，只有 `ZA-Kru` 与该名单重合。本项目发布的是该 SPACETIME 案例数据包的 94 个合规站点，不是 FLUXNET2015 全球全部站点。FLUXNET 政策按站点年份（site-year）适用；如果使用其他来源或其他版本的数据，还需按官方政策核对对应站点年份。
 
-从 [GitHub Releases] 下载 FLUXNET 的全部 17 个发布文件：`fluxnet_data.z01` 至 `fluxnet_data.z16`，以及 `fluxnet_data.zip`。将这 17 个文件放在同一目录中，使用 WinRAR 或 7-Zip 解压 `fluxnet_data.zip`，并将解压内容放入 `remixdb/data/`。解压后应得到 `remixdb/data/fluxnet_data/`，其中直接包含 94 个站点目录。每个站点目录保留该案例数据包中可用的 `HH`、`DD`、`WW`、`MM`、`YY` 分辨率的完整预处理文件。发布包包含干净的 `*_pre.csv` 文件以及实验所需的对应故障注入数据，不包含原始 CSV 文件。
+从 [GitHub Releases] 下载 FLUXNET 数据集的全部 5 个分卷文件：
+
+- `fluxnet_data.z01`
+- `fluxnet_data.z02`
+- `fluxnet_data.z03`
+- `fluxnet_data.z04`
+- `fluxnet_data.zip`
+
+将全部 5 个文件放在同一个目录中，使用 WinRAR 或 7-Zip 解压 `fluxnet_data.zip`，并将解压得到的 `fluxnet_data/` 目录放入 `remixdb/data/`。
+
+解压后应得到 `remixdb/data/fluxnet_data/`，其中直接包含 94 个站点目录。每个站点目录保留该案例数据包中可用的 `HH`、`DD`、`WW`、`MM`、`YY` 分辨率的完整预处理文件。压缩包只包含干净的 `*_pre.csv` 文件，不包含原始 CSV 或故障注入版本。
 
 如果使用原始 FLUXNET 案例数据重新生成预处理文件，请将站点目录放入 `remixdb/data/fluxnet_data/`，并从原始数据目录中排除整个 `FLX_ZA-Kru_...` 站点目录。然后在 `remixdb/` 目录执行：
 
@@ -39,11 +49,11 @@ python3 tools/preprocess_fluxnet.py data/fluxnet_data
 - **原始压缩包：** [下载 `wt_walks_v1.zip`](https://causalchamber.s3.eu-central-1.amazonaws.com/downloadables/wt_walks_v1.zip)。
 - **官方公布的原始压缩包 MD5：** `19bb4e92cbe0b8dff49299b9b509ac36`。
 - **许可证：** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)。上游数据仓库说明其 CSV 文件采用 CC BY 4.0，允许分享和改编，但需要署名并说明修改。
-- **下载：** [GitHub Releases]。
+- **下载入口：** [GitHub Releases]。
 
-从 [GitHub Releases] 下载 `windtunnel_data.zip`，正常解压到 `remixdb/data/`。解压后应得到 `remixdb/data/windtunnel_data/`，所有完整预处理后的 `*_pre.csv` 文件应直接位于该目录中，不要额外嵌套一层 `windtunnel_data/`。
+从 [GitHub Releases] 下载 `windtunnel_data.zip`，解压到 `remixdb/data/`。解压后应得到 `remixdb/data/windtunnel_data/`，所有完整预处理后的 `*_pre.csv` 文件应直接位于该目录中，不要额外嵌套一层 `windtunnel_data/`。
 
-GitHub Releases 中的 `windtunnel_data.zip` 包含完整的 31 个干净预处理 CSV 文件，而不只是当前实验配置选用的两个 regime-jump 文件：16 个 `actuators_random_walk_i_pre.csv`（i=1…16）及其合并文件 `actuators_random_walk_pre.csv`；5 个 `loads_hatch_mix_fast_run_i_pre.csv`（i=1…5）及其合并文件 `loads_hatch_mix_fast_run_pre.csv`；5 个 `loads_hatch_mix_slow_run_i_pre.csv`（i=1…5）及其合并文件 `loads_hatch_mix_slow_run_pre.csv`；以及 `regime_jumps_single_pre.csv`、`regime_jumps_multi_pre.csv`。三个合并文件分别由对应的分段预处理文件按数字顺序拼接而成，表头只保留一次。发布包还包含实验所需的对应故障注入数据，不包含原始 CSV 文件。
+压缩包应包含完整的 31 个干净预处理 CSV 文件，而不只是当前实验配置选用的两个 regime-jump 文件：16 个 `actuators_random_walk_i_pre.csv`（i=1…16）及其合并文件 `actuators_random_walk_pre.csv`；5 个 `loads_hatch_mix_fast_run_i_pre.csv`（i=1…5）及其合并文件 `loads_hatch_mix_fast_run_pre.csv`；5 个 `loads_hatch_mix_slow_run_i_pre.csv`（i=1…5）及其合并文件 `loads_hatch_mix_slow_run_pre.csv`；以及 `regime_jumps_single_pre.csv`、`regime_jumps_multi_pre.csv`。三个合并文件分别由对应的分段预处理文件按数字顺序拼接而成，表头只保留一次。压缩包只包含干净的 `*_pre.csv` 文件；故障版本由本地故障生成工具产生。
 
 如需从原始数据重新生成预处理文件，将原始 CSV 直接放入 `remixdb/data/windtunnel_data/`，在 `remixdb/` 目录执行：
 
@@ -74,7 +84,7 @@ python3 tools/preprocess_windtunnel.py data/windtunnel_data
 
 ### 1.3 不随项目分发的数据集
 
-以下数据集不通过 GitHub Releases 分发；本项目不提供其原始文件、预处理文件、故障文件、真值文件或样例片段。使用者需要通过原始数据提供方或其他合法途径自行取得数据，并遵守相应使用条款。
+以下数据集不通过 GitHub 源码仓库或 GitHub Releases 分发；本项目不提供其原始文件、预处理文件、故障文件、真值文件或样例片段。使用者需要通过原始数据提供方或其他合法途径自行取得数据，并遵守相应使用条款。
 
 | 数据集 | 来源与获取入口 | 不分发的原因 |
 |---|---|---|
@@ -116,9 +126,9 @@ NETSIM 和 DREAM3 的预处理由 `run_cdit_experiments()` 自动触发；该入
 
 ## 3. 生成真实数据集的故障片段
 
-RemixDB 的 `realdataset_fault_generation` 工具支持 **Basin、FLUXNET 和 WindTunnel**，不支持 NETSIM 或 DREAM3。GitHub Releases 已包含 FLUXNET 和 WindTunnel 实验所需的预处理数据及对应故障注入数据。对于默认实验，用户下载并解压数据集后即可运行，无需再次执行故障生成工具。该工具仍然保留，可根据需要从干净的 `*_pre.csv` 文件在本地重新生成故障片段和延迟修复片段。
+RemixDB 的 `realdataset_fault_generation` 工具支持 **Basin、FLUXNET 和 WindTunnel**，不支持 NETSIM 或 DREAM3。它以干净的 `*_pre.csv` 为输入，在本地生成故障片段和延迟修复片段；GitHub Releases 中的 FLUXNET 和 WindTunnel 压缩包不包含故障版本。
 
-1. 准备相应数据集的干净预处理文件：FLUXNET 和 WindTunnel 从 GitHub Releases 下载；Basin 按第 2.1 节完成预处理。
+1. 准备相应数据集的干净预处理文件：FLUXNET 和 WindTunnel 从 [GitHub Releases] 下载；Basin 按第 2.1 节完成预处理。
 2. 打开 `remixdb/experiment/realdataset_fault_generation_input.csv`，保留需要生成故障数据的数据集配置行，并按需调整故障比例、故障长度和修复延迟。
 3. 打开 `remixdb/xdbdemo.c`，在 `main()` 中注释默认的 `return run_multiple_experiments();`，取消注释 `return run_realdataset_fault_generation_experiments();`。
 4. 在 `remixdb/` 目录编译并运行：
@@ -196,7 +206,7 @@ RemixDB 和 RocksDB 保留各自上游许可证，二者许可证相互独立。
 
 # InDB-LSS-CDiT (English)
 
-This repository contains the complete RemixDB and RocksDB 11.8.1 source projects. Both projects use the shared `remixdb/data/` directory. The GitHub repository does not bundle dataset files or demo samples. The complete preprocessed FLUXNET and WindTunnel datasets are distributed separately through GitHub Releases.
+This repository contains the complete RemixDB and RocksDB 11.8.1 source projects. Both projects use the shared `remixdb/data/` directory. The GitHub source repository does not bundle dataset files or demo samples. The complete preprocessed FLUXNET and WindTunnel datasets are distributed separately through the [GitHub Releases] page.
 
 ## Dataset downloads
 
@@ -211,7 +221,17 @@ This repository contains the complete RemixDB and RocksDB 11.8.1 source projects
 
 The SPACETIME case-study package lists 95 FLUXNET site directories. `ZA-Kru` is a Tier Two site and is excluded. The remaining 94 sites fall under the CC BY 4.0 (Tier One) policy. FLUXNET lists six Tier Two sites: `RU-Sam`, `RU-SkP`, `RU-Tks`, `RU-Vrk`, `SE-St1`, and `ZA-Kru`; only `ZA-Kru` occurs in the 95-site SPACETIME package. This release covers the 94 eligible sites in the SPACETIME case-study package, not all global FLUXNET2015 sites. The FLUXNET policy applies at the site-year level; other FLUXNET copies or releases must be checked against the applicable policy for each site-year.
 
-Download all 17 FLUXNET release assets from [GitHub Releases]: `fluxnet_data.z01` through `fluxnet_data.z16`, and `fluxnet_data.zip`. Place all 17 files in the same directory. Extract `fluxnet_data.zip` using WinRAR or 7-Zip, and place the extracted contents in `remixdb/data/`. The resulting directory must be `remixdb/data/fluxnet_data/`, containing the 94 site directories. Each site directory retains all available preprocessed resolutions (`HH`, `DD`, `WW`, `MM`, and `YY`) from the case-study package. The release archive contains clean `*_pre.csv` files and the corresponding fault-injected data required by the experiments, but does not include raw CSV files.
+Download all five FLUXNET archive files from [GitHub Releases]:
+
+- `fluxnet_data.z01`
+- `fluxnet_data.z02`
+- `fluxnet_data.z03`
+- `fluxnet_data.z04`
+- `fluxnet_data.zip`
+
+Place all five files in the same directory. Extract `fluxnet_data.zip` using WinRAR or 7-Zip, and place the extracted `fluxnet_data/` directory in `remixdb/data/`.
+
+The resulting directory must be `remixdb/data/fluxnet_data/`, containing the 94 site directories. Each site directory retains all available preprocessed resolutions (`HH`, `DD`, `WW`, `MM`, and `YY`) from the case-study package. The archive contains clean `*_pre.csv` files only, not raw CSV files or fault-injected variants.
 
 To regenerate the preprocessed files from the original case-study data, place the site directories under `remixdb/data/fluxnet_data/`, excluding the entire `FLX_ZA-Kru_...` directory, and run this command from `remixdb/`:
 
@@ -234,7 +254,7 @@ The script processes raw CSV files in each site directory and writes correspondi
 
 Download `windtunnel_data.zip` from [GitHub Releases] and extract it into `remixdb/data/`. The resulting directory must be `remixdb/data/windtunnel_data/`, with all clean `*_pre.csv` files directly inside it. Do not create an extra nested `windtunnel_data/` directory.
 
-The `windtunnel_data.zip` release archive contains the complete set of 31 clean preprocessed CSV files, not just the two regime-jump files selected by the default experiment configuration: 16 individual random-walk files plus their concatenated file, five individual fast-run files plus their concatenated file, five individual slow-run files plus their concatenated file, and the two regime-jump files. Each concatenated file contains one header followed by the data rows from its component files in numeric order. The archive also contains the corresponding fault-injected data required by the experiments, but does not include raw CSV files.
+The archive contains the complete set of 31 clean preprocessed CSV files, not just the two regime-jump files selected by the default experiment configuration: 16 individual random-walk files plus their concatenated file, five individual fast-run files plus their concatenated file, five individual slow-run files plus their concatenated file, and the two regime-jump files. Each concatenated file contains one header followed by the data rows from its component files in numeric order. Faulted variants are generated locally and are not included in the archive.
 
 To regenerate the preprocessed files from the original raw archive, put the raw CSV files directly in `remixdb/data/windtunnel_data/` and run from `remixdb/`:
 
@@ -265,7 +285,7 @@ The script preserves `timestamp`, z-scores the 21 measured variables, and treats
 
 ### Datasets not distributed with this project
 
-No raw, preprocessed, faulted, ground-truth, or sample files are distributed for the following datasets:
+No raw, preprocessed, faulted, ground-truth, or sample files are distributed for the following datasets through the GitHub source repository or GitHub Releases:
 
 - **Basin:** sourced from the Global Runoff Data Centre (GRDC) and used in the SPACETIME case study. GRDC restricts redistribution of downloaded hydrological data to unauthorized third parties or the public, including online distribution. Source: [GRDC Data Portal](https://grdc.bafg.de/data/data_portal/index.html).
 - **NETSIM:** sourced from [Oxford FMRIB NETSIM](https://www.fmrib.ox.ac.uk/datasets/netsim/index.html); related files are referenced in the [TCDF fMRI data directory](https://github.com/M-Nauta/TCDF/tree/master/data/fMRI). No dataset-specific public redistribution permission was identified for the third-party fMRI data.
@@ -305,9 +325,9 @@ The `run_cdit_experiments()` entry point executes both NETSIM and DREAM3 experim
 
 ## Generating faulted real-dataset files
 
-The RemixDB `realdataset_fault_generation` utility supports **Basin, FLUXNET, and WindTunnel**; it does not support NETSIM or DREAM3. The GitHub Releases archives already contain the preprocessed FLUXNET and WindTunnel data and the corresponding fault-injected data required by the experiments. Users do not need to run this utility to reproduce the default experiments after downloading and extracting the release archives. The utility is retained for regenerating faulted and delayed-repair variants locally from clean `*_pre.csv` files when needed.
+The RemixDB `realdataset_fault_generation` utility supports **Basin, FLUXNET, and WindTunnel**; it does not support NETSIM or DREAM3. It generates faulted and delayed-repair variants locally from clean `*_pre.csv` files. The FLUXNET and WindTunnel archives in GitHub Releases contain clean preprocessed data only; faulted variants are not included.
 
-1. Prepare clean preprocessed files: download FLUXNET or WindTunnel from GitHub Releases, or preprocess Basin as described above.
+1. Prepare clean preprocessed files: download FLUXNET or WindTunnel from [GitHub Releases], or preprocess Basin as described above.
 2. Edit `remixdb/experiment/realdataset_fault_generation_input.csv`, keeping the dataset rows you want and adjusting fault ratios, fault lengths, and repair delays as needed.
 3. In `remixdb/xdbdemo.c`, comment out `return run_multiple_experiments();` in `main()` and uncomment `return run_realdataset_fault_generation_experiments();`.
 4. Build and run from `remixdb/`:
